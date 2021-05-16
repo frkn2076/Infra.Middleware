@@ -34,7 +34,7 @@ public void Configure(IApplicationBuilder app)
 <br>
 
 <br>
-Or you can pass your string method as action parameter.
+Or you can pass your custome string method as action parameter.
 <br>
 <br>
 
