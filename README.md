@@ -44,7 +44,7 @@ public void Configure(IApplicationBuilder app)
     ...
     
     // Uses Console.WriteLine action with no parameter
-    Action<string> action = AppDbContext.Insert;
+    Action<string> action = AppDbContext.Logs.Insert;
     app.UseMiddleware<RequestResponseLoggingMiddleware>(action);
 
     ...
