@@ -106,18 +106,16 @@ namespace Infra.Middleware
         {
             using var reader = new StreamReader(request.Body, encoding: Encoding.UTF8, detectEncodingFromByteOrderMarks: false, leaveOpen: true);
             var requestBody = await reader.ReadToEndAsync();
-            var body = JsonConvert.DeserializeObject<dynamic>(requestBody);
             request.Body.Position = 0;
-            return body;
+            return requestBody;
         }
 
         private async Task<dynamic> GetResponseBody(HttpResponse response)
         {
             response.Body.Seek(0, SeekOrigin.Begin);
             var responseBody = await new StreamReader(response.Body).ReadToEndAsync();
-            var body = JsonConvert.DeserializeObject<dynamic>(responseBody);
             response.Body.Seek(0, SeekOrigin.Begin);
-            return body;
+            return responseBody;
         }
     }
 }
